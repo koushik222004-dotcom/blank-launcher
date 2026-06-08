@@ -116,11 +116,6 @@ jobs:
                   text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
                   text.setGravity(Gravity.CENTER);
                   text.setPadding(100, 0, 100, 0);
-                  FrameLayout.LayoutParams textParams = new FrameLayout.LayoutParams(
-                      FrameLayout.LayoutParams.MATCH_PARENT,
-                      FrameLayout.LayoutParams.WRAP_CONTENT
-                  );
-                  text.setLayoutParams(textParams);
                   container.addView(clock);
                   container.addView(date);
                   container.addView(spacer);
