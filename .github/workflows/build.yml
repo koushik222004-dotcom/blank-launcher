@@ -59,9 +59,13 @@ jobs:
           cat > app/src/main/java/com/example/atomlauncher/MainActivity.java << 'EOF'
           package com.example.atomlauncher;
           import android.app.Activity;
+          import android.graphics.Color;
           import android.os.Bundle;
+          import android.view.Gravity;
           import android.view.MotionEvent;
           import android.view.View;
+          import android.widget.FrameLayout;
+          import android.widget.TextView;
           public class MainActivity extends Activity {
               @Override
               protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +78,21 @@ jobs:
                       View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                       View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                   );
+                  FrameLayout layout = new FrameLayout(this);
+                  TextView text = new TextView(this);
+                  text.setText("FOCUS on your GOALS, your PEACE & your HAPPINESS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
+                  text.setTextColor(Color.WHITE);
+                  text.setTextSize(14);
+                  text.setGravity(Gravity.CENTER);
+                  text.setPadding(60, 0, 60, 0);
+                  FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                      FrameLayout.LayoutParams.MATCH_PARENT,
+                      FrameLayout.LayoutParams.WRAP_CONTENT,
+                      Gravity.CENTER
+                  );
+                  text.setLayoutParams(params);
+                  layout.addView(text);
+                  setContentView(layout);
               }
               @Override
               public boolean dispatchTouchEvent(MotionEvent ev) { return true; }
