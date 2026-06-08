@@ -43,7 +43,8 @@ jobs:
                       android:stateNotNeeded="true"
                       android:resumeWhilePausing="true"
                       android:screenOrientation="nosensor"
-                      android:hardwareAccelerated="false">
+                      android:hardwareAccelerated="false"
+                      android:excludeFromRecents="true">
                       <intent-filter>
                           <action android:name="android.intent.action.MAIN" />
                           <category android:name="android.intent.category.HOME" />
