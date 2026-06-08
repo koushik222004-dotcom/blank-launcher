@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Set up JDK 17
@@ -60,11 +62,15 @@ jobs:
           package com.example.atomlauncher;
           import android.app.Activity;
           import android.graphics.Color;
+          import android.graphics.Typeface;
           import android.os.Bundle;
+          import android.util.TypedValue;
           import android.view.Gravity;
           import android.view.MotionEvent;
           import android.view.View;
           import android.widget.FrameLayout;
+          import android.widget.LinearLayout;
+          import android.widget.TextClock;
           import android.widget.TextView;
           public class MainActivity extends Activity {
               @Override
@@ -78,21 +84,48 @@ jobs:
                       View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                       View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                   );
-                  FrameLayout layout = new FrameLayout(this);
-                  TextView text = new TextView(this);
-                  text.setText("FOCUS on your GOALS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
-                  text.setTextColor(Color.WHITE);
-                  text.setTextSize(17);
-                  text.setGravity(Gravity.CENTER);
-                  text.setPadding(80, 0, 80, 0);
-                  FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                  FrameLayout root = new FrameLayout(this);
+                  LinearLayout container = new LinearLayout(this);
+                  container.setOrientation(LinearLayout.VERTICAL);
+                  container.setGravity(Gravity.CENTER_HORIZONTAL);
+                  FrameLayout.LayoutParams containerParams = new FrameLayout.LayoutParams(
                       FrameLayout.LayoutParams.MATCH_PARENT,
                       FrameLayout.LayoutParams.WRAP_CONTENT,
                       Gravity.CENTER
                   );
-                  text.setLayoutParams(params);
-                  layout.addView(text);
-                  setContentView(layout);
+                  container.setLayoutParams(containerParams);
+                  TextClock clock = new TextClock(this);
+                  clock.setFormat12Hour("hh:mm a");
+                  clock.setFormat24Hour("HH:mm");
+                  clock.setTextColor(Color.WHITE);
+                  clock.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
+                  clock.setTypeface(Typeface.MONOSPACE);
+                  clock.setGravity(Gravity.CENTER);
+                  TextClock date = new TextClock(this);
+                  date.setFormat12Hour("EEEE, d MMMM");
+                  date.setFormat24Hour("EEEE, d MMMM");
+                  date.setTextColor(Color.WHITE);
+                  date.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                  date.setTypeface(Typeface.MONOSPACE);
+                  date.setGravity(Gravity.CENTER);
+                  View spacer = new View(this);
+                  LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
+                      LinearLayout.LayoutParams.MATCH_PARENT, 80
+                  );
+                  spacer.setLayoutParams(spacerParams);
+                  TextView text = new TextView(this);
+                  text.setText("FOCUS on your GOALS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
+                  text.setTextColor(Color.WHITE);
+                  text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                  text.setTypeface(Typeface.MONOSPACE);
+                  text.setGravity(Gravity.CENTER);
+                  text.setPadding(100, 0, 100, 0);
+                  container.addView(clock);
+                  container.addView(date);
+                  container.addView(spacer);
+                  container.addView(text);
+                  root.addView(container);
+                  setContentView(root);
               }
               @Override
               public boolean dispatchTouchEvent(MotionEvent ev) { return true; }
