@@ -80,11 +80,11 @@ jobs:
                   );
                   FrameLayout layout = new FrameLayout(this);
                   TextView text = new TextView(this);
-                  text.setText("FOCUS on your GOALS, your PEACE & your HAPPINESS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
+                  text.setText("FOCUS on your GOALS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
                   text.setTextColor(Color.WHITE);
-                  text.setTextSize(16);
+                  text.setTextSize(17);
                   text.setGravity(Gravity.CENTER);
-                  text.setPadding(60, 0, 60, 0);
+                  text.setPadding(80, 0, 80, 0);
                   FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                       FrameLayout.LayoutParams.MATCH_PARENT,
                       FrameLayout.LayoutParams.WRAP_CONTENT,
