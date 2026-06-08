@@ -97,6 +97,7 @@ jobs:
                   clock.setTextColor(Color.WHITE);
                   clock.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
                   clock.setGravity(Gravity.CENTER);
+                  clock.setAllCaps(true);
 
                   TextClock date = new TextClock(this);
                   date.setFormat12Hour("EEEE, d MMMM");
@@ -112,7 +113,7 @@ jobs:
                   spacer.setLayoutParams(spacerParams);
 
                   TextView text = new TextView(this);
-                  text.setText("FOCUS on your GOALS, your PEACE & your HAPPINESS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
+                  text.setText("FOCUS on your GOALS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH!");
                   text.setTextColor(Color.WHITE);
                   text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
                   text.setGravity(Gravity.CENTER);
