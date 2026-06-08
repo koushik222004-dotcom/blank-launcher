@@ -99,14 +99,14 @@ jobs:
                   clock.setFormat24Hour("HH:mm");
                   clock.setTextColor(Color.WHITE);
                   clock.setTextSize(TypedValue.COMPLEX_UNIT_SP, 40);
-                  clock.setTypeface(Typeface.MONOSPACE);
+                  clock.setTypeface(Typeface.SERIF);
                   clock.setGravity(Gravity.CENTER);
                   TextClock date = new TextClock(this);
                   date.setFormat12Hour("EEEE, d MMMM");
                   date.setFormat24Hour("EEEE, d MMMM");
                   date.setTextColor(Color.WHITE);
                   date.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-                  date.setTypeface(Typeface.MONOSPACE);
+                  date.setTypeface(Typeface.SERIF);
                   date.setGravity(Gravity.CENTER);
                   View spacer = new View(this);
                   LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
@@ -117,7 +117,7 @@ jobs:
                   text.setText("FOCUS on your GOALS.\nDon't waste your TIME on anything that doesn't contribute to your GROWTH");
                   text.setTextColor(Color.WHITE);
                   text.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
-                  text.setTypeface(Typeface.MONOSPACE);
+                  text.setTypeface(Typeface.SERIF);
                   text.setGravity(Gravity.CENTER);
                   text.setPadding(100, 0, 100, 0);
                   container.addView(clock);
