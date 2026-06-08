@@ -68,7 +68,6 @@ jobs:
           import android.provider.Settings;
           import android.util.TypedValue;
           import android.view.Gravity;
-          import android.view.MotionEvent;
           import android.view.View;
           import android.widget.FrameLayout;
           import android.widget.LinearLayout;
@@ -145,8 +144,6 @@ jobs:
                   root.addView(wifi);
                   setContentView(root);
               }
-              @Override
-              public boolean dispatchTouchEvent(MotionEvent ev) { return true; }
               @Override
               public void onBackPressed() {}
           }
