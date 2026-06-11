@@ -156,8 +156,8 @@ jobs:
                   weightLayout.addView(bottomSpacer);
 
                   LinearLayout bottomButtons = new LinearLayout(this);
-                  bottomButtons.setOrientation(LinearLayout.VERTICAL);
-                  bottomButtons.setGravity(Gravity.CENTER_HORIZONTAL);
+                  bottomButtons.setOrientation(LinearLayout.HORIZONTAL);
+                  bottomButtons.setGravity(Gravity.CENTER);
                   bottomButtons.setPadding(0, 0, 0, 60);
                   FrameLayout.LayoutParams buttonsLayoutParams = new FrameLayout.LayoutParams(
                       FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -169,10 +169,9 @@ jobs:
                   TextView apps = new TextView(this);
                   apps.setText("App Manager");
                   apps.setTextColor(Color.WHITE);
-                  apps.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+                  apps.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                   apps.setGravity(Gravity.CENTER);
                   apps.setPaintFlags(apps.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                  apps.setPadding(0, 0, 0, 16);
                   apps.setVisibility(View.GONE);
                   apps.setOnClickListener(new View.OnClickListener() {
                       public void onClick(View v) {
@@ -185,10 +184,21 @@ jobs:
                       }
                   }, 20000);
 
+                  TextView dot = new TextView(this);
+                  dot.setText(" · ");
+                  dot.setTextColor(Color.WHITE);
+                  dot.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                  dot.setVisibility(View.GONE);
+                  new Handler().postDelayed(new Runnable() {
+                      public void run() {
+                          dot.setVisibility(View.VISIBLE);
+                      }
+                  }, 20000);
+
                   TextView wifi = new TextView(this);
                   wifi.setText("Wi-Fi Settings");
                   wifi.setTextColor(Color.WHITE);
-                  wifi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+                  wifi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                   wifi.setGravity(Gravity.CENTER);
                   wifi.setPaintFlags(wifi.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                   wifi.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +208,7 @@ jobs:
                   });
 
                   bottomButtons.addView(apps);
+                  bottomButtons.addView(dot);
                   bottomButtons.addView(wifi);
 
                   root.addView(weightLayout);
