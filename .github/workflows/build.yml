@@ -154,47 +154,27 @@ jobs:
                   weightLayout.addView(container);
                   weightLayout.addView(bottomSpacer);
 
-                  LinearLayout bottomButtons = new LinearLayout(this);
-                  bottomButtons.setOrientation(LinearLayout.VERTICAL);
-                  bottomButtons.setGravity(Gravity.CENTER_HORIZONTAL);
-                  bottomButtons.setPadding(0, 0, 0, 60);
-                  FrameLayout.LayoutParams bottomParams = new FrameLayout.LayoutParams(
-                      FrameLayout.LayoutParams.WRAP_CONTENT,
-                      FrameLayout.LayoutParams.WRAP_CONTENT,
-                      Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL
-                  );
-                  bottomButtons.setLayoutParams(bottomParams);
-
-                  TextView apps = new TextView(this);
-                  apps.setText("App Manager");
-                  apps.setTextColor(Color.WHITE);
-                  apps.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
-                  apps.setGravity(Gravity.CENTER);
-                  apps.setPaintFlags(apps.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                  apps.setPadding(0, 0, 0, 16);
-                  apps.setOnClickListener(new View.OnClickListener() {
-                      public void onClick(View v) {
-                          startActivity(new Intent(Settings.ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS));
-                      }
-                  });
-
                   TextView wifi = new TextView(this);
                   wifi.setText("Wi-Fi Settings");
                   wifi.setTextColor(Color.WHITE);
                   wifi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                   wifi.setGravity(Gravity.CENTER);
                   wifi.setPaintFlags(wifi.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                  wifi.setPadding(0, 0, 0, 60);
+                  FrameLayout.LayoutParams wifiParams = new FrameLayout.LayoutParams(
+                      FrameLayout.LayoutParams.WRAP_CONTENT,
+                      FrameLayout.LayoutParams.WRAP_CONTENT,
+                      Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL
+                  );
+                  wifi.setLayoutParams(wifiParams);
                   wifi.setOnClickListener(new View.OnClickListener() {
                       public void onClick(View v) {
                           startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
                       }
                   });
 
-                  bottomButtons.addView(apps);
-                  bottomButtons.addView(wifi);
-
                   root.addView(weightLayout);
-                  root.addView(bottomButtons);
+                  root.addView(wifi);
                   setContentView(root);
               }
               @Override
