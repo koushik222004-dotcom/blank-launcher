@@ -169,7 +169,7 @@ jobs:
                   TextView apps = new TextView(this);
                   apps.setText("App Manager");
                   apps.setTextColor(Color.WHITE);
-                  apps.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                  apps.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
                   apps.setGravity(Gravity.CENTER);
                   apps.setPaintFlags(apps.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                   apps.setVisibility(View.GONE);
@@ -187,7 +187,7 @@ jobs:
                   TextView dot = new TextView(this);
                   dot.setText(" · ");
                   dot.setTextColor(Color.WHITE);
-                  dot.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                  dot.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
                   dot.setVisibility(View.GONE);
                   new Handler().postDelayed(new Runnable() {
                       public void run() {
@@ -198,7 +198,7 @@ jobs:
                   TextView wifi = new TextView(this);
                   wifi.setText("Wi-Fi Settings");
                   wifi.setTextColor(Color.WHITE);
-                  wifi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                  wifi.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
                   wifi.setGravity(Gravity.CENTER);
                   wifi.setPaintFlags(wifi.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                   wifi.setOnClickListener(new View.OnClickListener() {
@@ -207,9 +207,44 @@ jobs:
                       }
                   });
 
+                  TextView dot2 = new TextView(this);
+                  dot2.setText(" · ");
+                  dot2.setTextColor(Color.WHITE);
+                  dot2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+                  dot2.setVisibility(View.GONE);
+                  new Handler().postDelayed(new Runnable() {
+                      public void run() {
+                          dot2.setVisibility(View.VISIBLE);
+                      }
+                  }, 20000);
+
+                  TextView launcher = new TextView(this);
+                  launcher.setText("Default Launcher");
+                  launcher.setTextColor(Color.WHITE);
+                  launcher.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+                  launcher.setGravity(Gravity.CENTER);
+                  launcher.setPaintFlags(launcher.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                  launcher.setVisibility(View.GONE);
+                  launcher.setOnClickListener(new View.OnClickListener() {
+                      public void onClick(View v) {
+                          try {
+                              startActivity(new Intent(Settings.ACTION_HOME_SETTINGS));
+                          } catch (Exception e) {
+                              startActivity(new Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS));
+                          }
+                      }
+                  });
+                  new Handler().postDelayed(new Runnable() {
+                      public void run() {
+                          launcher.setVisibility(View.VISIBLE);
+                      }
+                  }, 20000);
+
                   bottomButtons.addView(apps);
                   bottomButtons.addView(dot);
                   bottomButtons.addView(wifi);
+                  bottomButtons.addView(dot2);
+                  bottomButtons.addView(launcher);
 
                   root.addView(weightLayout);
                   root.addView(bottomButtons);
