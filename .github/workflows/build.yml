@@ -258,10 +258,10 @@ jobs:
               android:viewportHeight="108">
               <path
                   android:fillColor="#E53935"
-                  android:pathData="M26,54 A28,28 0 1 0 82,54 A28,28 0 1 0 26,54 Z" />
+                  android:pathData="M29,54 A25,25 0 1 0 79,54 A25,25 0 1 0 29,54 Z" />
               <path
                   android:fillColor="#0A1628"
-                  android:pathData="M50,22 A4,4 0 1 0 58,22 A4,4 0 1 0 50,22 Z" />
+                  android:pathData="M48,24 A6,6 0 1 0 60,24 A6,6 0 1 0 48,24 Z" />
           </vector>
           EOF
 
