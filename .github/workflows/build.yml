@@ -261,7 +261,7 @@ jobs:
                   android:pathData="M34,54 A20,20 0 1 0 74,54 A20,20 0 1 0 34,54 Z" />
               <path
                   android:fillColor="#0A1628"
-                  android:pathData="M49,17 A5,5 0 1 0 59,17 A5,5 0 1 0 49,17 Z" />
+                  android:pathData="M49,24 A5,5 0 1 0 59,24 A5,5 0 1 0 49,24 Z" />
           </vector>
           EOF
 
