@@ -182,7 +182,7 @@ jobs:
                       public void run() {
                           apps.setVisibility(View.VISIBLE);
                       }
-                  }, 300000);
+                  }, 100000);
 
                   TextView dot = new TextView(this);
                   dot.setText(" · ");
@@ -193,7 +193,7 @@ jobs:
                       public void run() {
                           dot.setVisibility(View.VISIBLE);
                       }
-                  }, 300000);
+                  }, 100000);
 
                   TextView wifi = new TextView(this);
                   wifi.setText("Wi-Fi Settings");
